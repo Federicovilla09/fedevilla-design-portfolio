@@ -1,0 +1,127 @@
+/* ==========================================================================
+   Estilos de texto · fedevilla.design
+   Tamaños fluidos: clamp(mobile, …, desktop), lineal entre 390px y 1440px.
+   Fórmula: pendiente = (max − min) / 1050 · intercepto = min − pendiente·390
+   Tracking en em para que escale con el tamaño (−4% = −0.04em).
+   ========================================================================== */
+
+:root {
+  /*                  mobile     intercepto + pendiente    desktop */
+  --fs-display: clamp(5.25rem, 2.5571rem + 11.0476vw, 12.5rem); /* 84 → 200 */
+  --fs-h1: clamp(2.75rem, 1.1714rem + 6.4762vw, 7rem); /* 44 → 112 */
+  --fs-h2: clamp(2rem, 1.4429rem + 2.2857vw, 3.5rem); /* 32 → 56 */
+  --fs-h3: clamp(1.375rem, 1.1429rem + 0.9524vw, 2rem); /* 22 → 32 */
+  --fs-h4: clamp(1.125rem, 1.0321rem + 0.381vw, 1.375rem); /* 18 → 22 */
+  --fs-numero-l: clamp(3rem, 1.8857rem + 4.5714vw, 6rem); /* 48 → 96 */
+  --fs-numero-m: clamp(2rem, 1.6286rem + 1.5238vw, 3rem); /* 32 → 48 */
+  --fs-body-l: clamp(0.9375rem, 0.8446rem + 0.381vw, 1.1875rem); /* 15 → 19 */
+  --fs-body: clamp(0.875rem, 0.8286rem + 0.1905vw, 1rem); /* 14 → 16 */
+  --fs-small: clamp(0.75rem, 0.7268rem + 0.0952vw, 0.8125rem); /* 12 → 13 */
+  --fs-label: clamp(0.6875rem, 0.6411rem + 0.1905vw, 0.8125rem); /* 11 → 13 */
+  --fs-boton: clamp(0.875rem, 0.8518rem + 0.0952vw, 0.9375rem); /* 14 → 15 */
+}
+
+/* ---- Satoshi Bold ------------------------------------------------------ */
+
+.display,
+.h1,
+.h2,
+.h3,
+.h4,
+.boton {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-style: normal;
+}
+
+.display {
+  font-size: var(--fs-display);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.h1 {
+  font-size: var(--fs-h1);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.h2 {
+  font-size: var(--fs-h2);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.h3 {
+  font-size: var(--fs-h3);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.h4 {
+  font-size: var(--fs-h4);
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.boton {
+  font-size: var(--fs-boton);
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+/* ---- Satoshi Light Italic · números ------------------------------------ */
+
+.numero-l,
+.numero-m {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1;
+  letter-spacing: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.numero-l {
+  font-size: var(--fs-numero-l);
+}
+
+.numero-m {
+  font-size: var(--fs-numero-m);
+}
+
+/* ---- IBM Plex Mono ----------------------------------------------------- */
+
+.body-l,
+.body,
+.small,
+.label {
+  font-family: var(--font-mono);
+  font-style: normal;
+}
+
+.body-l {
+  font-size: var(--fs-body-l);
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.body {
+  font-size: var(--fs-body);
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.small {
+  font-size: var(--fs-small);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.label {
+  font-size: var(--fs-label);
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}

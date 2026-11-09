@@ -41,7 +41,7 @@ Usar el servidor MCP de Figma (`get_design_context`, `get_variable_defs`, `get_s
 - **Next.js** (App Router) + **TypeScript** (strict).
 - **CSS Modules** + **custom properties** generadas desde los tokens de Figma. Sin Tailwind.
 - **Motion** (motion.dev, ex Framer Motion) para animaciones e interacciones.
-- Fuentes: **Satoshi** (Fontshare, self-hosted con `next/font/local`) e **IBM Plex Mono** (`next/font/google`).
+- Fuentes: **Satoshi** (Fontshare, self-hosted en `src/fonts/` con `next/font/local`) e **IBM Plex Mono** (`next/font/google`).
 - Imágenes con `next/image`.
 - Deploy en **Vercel** (preview por cada PR).
 - Calidad: ESLint + Prettier. CI en **GitHub Actions**: lint, typecheck y build en cada PR.
@@ -75,7 +75,7 @@ src/
     motion.ts               # easings y duraciones compartidas
 public/
   images/projects/<slug>/   # portadas y pantallas exportadas de Figma
-  fonts/                    # Satoshi
+  fonts/                    # Satoshi (en src/fonts/, procesada por next/font/local)
 ```
 
 **Modelo de proyecto (`content/projects.ts`):**

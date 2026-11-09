@@ -1,0 +1,88 @@
+/* Layout de la página de prueba. Temporal: se reemplaza en la etapa 3. */
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-64);
+  padding: var(--space-80) var(--grid-margen);
+}
+
+.section > * {
+  width: 100%;
+  max-width: var(--contenido-max);
+  margin-inline: auto;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+
+.meta {
+  color: var(--texto-secundario);
+}
+
+.accent {
+  color: var(--acento-texto);
+}
+
+.specimen {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  padding-block: var(--space-24);
+  border-top: 1px solid var(--borde-default);
+}
+
+.numbers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-40);
+}
+
+.numbers > div {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.swatches,
+.radii {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+  gap: var(--grid-gutter);
+}
+
+.swatch {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.chip {
+  height: var(--space-64);
+  border: 1px solid var(--borde-default);
+  border-radius: var(--radius-sm);
+}
+
+.radius {
+  height: var(--space-64);
+  background-color: var(--fondo-superficie);
+  border: 1px solid var(--borde-default);
+}
+
+.button {
+  align-self: flex-start;
+  width: auto;
+  min-height: 44px;
+  padding: var(--space-12) var(--space-24);
+  background-color: var(--accion-primaria);
+  color: var(--accion-sobre-primaria);
+  border-radius: var(--radius-pill);
+}
