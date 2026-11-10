@@ -1,0 +1,120 @@
+.folder {
+  /* La carpeta escala con su ancho: todo está en % y en cqw */
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 340 / 312;
+  container-type: inline-size;
+  color: var(--folder-text);
+}
+
+.tab {
+  position: absolute;
+  left: 0;
+  top: 11%;
+  width: 44%;
+  height: 18%;
+  border-radius: 5cqw;
+  background: var(--folder-fill);
+}
+
+.body {
+  position: absolute;
+  inset: 21% 0 0 0;
+  border-radius: 7cqw;
+  background: var(--folder-fill);
+}
+
+.cover {
+  position: absolute;
+  left: 14%;
+  width: 72%;
+  top: -2%;
+  height: 67%;
+  overflow: hidden;
+  border-radius: 4cqw;
+  background: var(--color-blanco);
+  box-shadow: 0 0 0 1px var(--color-gris);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cover img {
+  object-fit: cover;
+  object-position: top;
+}
+
+.coverPlaceholder {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  font-family: var(--font-mono);
+  font-size: 3.6cqw;
+  color: var(--color-piedra);
+}
+
+.front {
+  position: absolute;
+  inset: 50% 0 0 0;
+  display: flex;
+  flex-direction: column;
+  padding: 5cqw 6.5cqw;
+  border-radius: 7cqw;
+  background: color-mix(in srgb, var(--folder-fill) 92%, transparent);
+  backdrop-filter: blur(18px);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.number {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-style: italic;
+  font-size: 12cqw;
+  line-height: 1;
+  color: var(--folder-number);
+}
+
+.name {
+  margin-top: auto;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 6.4cqw;
+  line-height: 1.15;
+}
+
+.meta {
+  margin-top: 1.5cqw;
+  font-family: var(--font-mono);
+  font-size: 3.6cqw;
+  color: var(--folder-meta);
+}
+
+/* Al pasar el mouse (o enfocar con teclado) la portada sube */
+.folder:hover .cover,
+.folder:focus-visible .cover {
+  transform: translateY(-16%) scale(1.04);
+}
+
+.folder:hover .front,
+.folder:focus-visible .front {
+  transform: translateY(2%);
+}
+
+/* ---------- Carpeta "Tu proyecto" ---------- */
+.cta {
+  color: var(--texto-primario);
+  --folder-number: var(--acento-texto);
+  --folder-meta: var(--texto-secundario);
+}
+
+.cta .tab,
+.cta .body {
+  background: transparent;
+  border: 1.5px dashed var(--texto-secundario);
+  opacity: 0.6;
+}
+
+.cta .front {
+  background: var(--fondo-pagina);
+  border: 1.5px dashed color-mix(in srgb, var(--texto-secundario) 60%, transparent);
+  backdrop-filter: none;
+}
