@@ -64,6 +64,7 @@
   .hero {
     justify-content: center;
     gap: var(--espacio-48);
+    padding: var(--espacio-24) var(--margen-pagina) calc(var(--espacio-48) + 88px);
   }
 
   .halo {

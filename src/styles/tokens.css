@@ -1,10 +1,5 @@
-/* ==========================================================================
-   Tokens de diseño · fedevilla.design
-   Fuente de verdad: Figma › Portfolio › Sistema de diseño (node 22:2)
-   ========================================================================== */
-
 :root {
-  /* ---- Primitivos de color ------------------------------------------- */
+  /* Primitivos */
   --color-carbon: #171717;
   --color-carbon-2: #232323;
   --color-linea-oscura: #3a3836;
@@ -16,7 +11,7 @@
   --color-oscuro: #a96836;
   --color-suave: #ebc7a5;
 
-  /* ---- Tokens semánticos · modo claro -------------------------------- */
+  /* Tokens semánticos · modo claro */
   --fondo-pagina: var(--color-calido);
   --fondo-superficie: var(--color-blanco);
   --texto-primario: var(--color-carbon);
@@ -27,52 +22,41 @@
   --acento-decorativo: var(--color-terracota);
   --acento-texto: var(--color-oscuro);
 
-  color-scheme: light;
+  /* Espacios (base 4) */
+  --espacio-4: 4px;
+  --espacio-8: 8px;
+  --espacio-12: 12px;
+  --espacio-16: 16px;
+  --espacio-20: 20px;
+  --espacio-24: 24px;
+  --espacio-32: 32px;
+  --espacio-40: 40px;
+  --espacio-48: 48px;
+  --espacio-64: 64px;
+  --espacio-80: 80px;
+  --espacio-96: 96px;
+  --espacio-120: 120px;
 
-  /* ---- Espacios (base 4) ---------------------------------------------- */
-  --space-4: 0.25rem;
-  --space-8: 0.5rem;
-  --space-12: 0.75rem;
-  --space-16: 1rem;
-  --space-20: 1.25rem;
-  --space-24: 1.5rem;
-  --space-32: 2rem;
-  --space-40: 2.5rem;
-  --space-48: 3rem;
-  --space-64: 4rem;
-  --space-80: 5rem;
-  --space-96: 6rem;
-  --space-120: 7.5rem;
+  /* Radios */
+  --radio-xs: 6px;
+  --radio-sm: 12px;
+  --radio-md: 16px;
+  --radio-lg: 20px;
+  --radio-xl: 24px;
+  --radio-pill: 999px;
 
-  /* ---- Radios --------------------------------------------------------- */
-  --radius-xs: 6px;
-  --radius-sm: 12px;
-  --radius-md: 16px;
-  --radius-lg: 20px;
-  --radius-xl: 24px;
-  --radius-pill: 999px;
-
-  /* ---- Grilla ----------------------------------------------------------
-     Mobile (390): 4 col · margen 20 · gutter 12
-     Desktop (1440): 12 col · margen 120 · gutter 24 · contenido máx. 1200
-     Margen y gutter escalan de forma fluida entre ambos extremos. */
-  --grid-columnas: 4;
-  --grid-margen: clamp(1.25rem, -1.0714rem + 9.5238vw, 7.5rem);
-  --grid-gutter: clamp(0.75rem, 0.4714rem + 1.1429vw, 1.5rem);
-  --contenido-max: 75rem; /* 1200 */
-
-  /* ---- Breakpoints (referencia; no se pueden usar en @media) ----------
-     tablet ≥ 768px · desktop ≥ 1440px (base de diseño) */
+  /* Layout */
+  --margen-pagina: var(--espacio-20);
+  --contenido-max: 1200px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   :root {
-    --grid-columnas: 12;
+    --margen-pagina: var(--espacio-120);
   }
 }
 
-/* ---- Tokens semánticos · modo oscuro ---------------------------------
-   Se aplica por sección: <section data-theme="dark">                    */
+/* Modo oscuro: se aplica por sección con data-theme="dark" */
 [data-theme="dark"] {
   --fondo-pagina: var(--color-carbon);
   --fondo-superficie: var(--color-carbon-2);
@@ -81,10 +65,7 @@
   --borde-default: var(--color-linea-oscura);
   --accion-primaria: var(--color-calido);
   --accion-sobre-primaria: var(--color-carbon);
-  --acento-decorativo: var(--color-terracota);
   --acento-texto: var(--color-terracota);
-
-  color-scheme: dark;
   background-color: var(--fondo-pagina);
   color: var(--texto-primario);
 }

@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { IBM_Plex_Mono } from "next/font/google";
 import "@/styles/tokens.css";
 import "@/styles/typography.css";
 import "@/styles/globals.css";
 import Nav from "@/components/layout/Nav";
+import FloatingCta from "@/components/layout/FloatingCta";
 
 const satoshi = localFont({
   src: [
@@ -27,8 +28,19 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://fedevilla-design-portfolio.vercel.app"),
   title: "fedevilla.design · Portfolio",
-  description: "Diseñador UX/UI que también desarrolla.",
+  description: "Diseñador UX/UI que también desarrolla. Productos digitales, del research al código.",
+  openGraph: {
+    title: "fedevilla.design · Portfolio",
+    description: "Diseñador UX/UI que también desarrolla.",
+    locale: "es_AR",
+    type: "website",
+  },
+};
+
+export const viewport: Viewport = {
+  viewportFit: "cover",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -37,6 +49,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body>
         <Nav />
         {children}
+        <FloatingCta />
       </body>
     </html>
   );

@@ -47,9 +47,6 @@ export default function Nav() {
 
       {/* Mobile */}
       <div className={styles.mobileActions}>
-        <Button href="/proyectos" size="M">
-          Proyectos
-        </Button>
         <button
           className={styles.menuButton}
           aria-label={open ? "Cerrar menú" : "Abrir menú"}

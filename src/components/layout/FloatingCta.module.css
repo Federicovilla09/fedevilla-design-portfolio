@@ -1,0 +1,16 @@
+.wrap {
+  position: fixed;
+  left: 50%;
+  translate: -50% 0;
+  bottom: calc(var(--espacio-20) + env(safe-area-inset-bottom));
+  z-index: 30;
+  border-radius: var(--radio-pill);
+  box-shadow: 0 12px 28px rgba(23, 23, 23, 0.28);
+}
+
+/* En escritorio, "Proyectos" ya está en la navegación */
+@media (min-width: 768px) {
+  .wrap {
+    display: none;
+  }
+}
