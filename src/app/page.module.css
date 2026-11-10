@@ -89,3 +89,34 @@
     order: -1; /* "Tu proyecto" va primera, como en Figma */
   }
 }
+
+/* Ayuda para mobile */
+.hint {
+  position: relative;
+  text-align: center;
+  max-width: 280px;
+}
+
+/* El halo respira suavemente */
+.halo {
+  animation: breathe 8s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% { scale: 1; }
+  50% { scale: 1.15; }
+}
+
+/* La carpeta de arriba se puede arrastrar */
+.item:first-child {
+  touch-action: none;
+}
+
+@media (min-width: 768px) {
+  .hint {
+    display: none;
+  }
+  .item:first-child {
+    touch-action: auto;
+  }
+}

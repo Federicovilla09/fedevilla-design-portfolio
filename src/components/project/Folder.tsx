@@ -13,9 +13,10 @@ const PALETTE = {
 type FolderProps = {
   project?: Project;
   variant?: "project" | "cta";
+  open?: boolean;
 };
 
-export default function Folder({ project, variant = "project" }: FolderProps) {
+export default function Folder({ project, variant = "project", open = false }: FolderProps) {
   // Carpeta punteada "Tu proyecto", que invita a escribir
   if (variant === "cta" || !project) {
     return (
@@ -40,7 +41,9 @@ export default function Folder({ project, variant = "project" }: FolderProps) {
   } as React.CSSProperties;
 
   return (
-    <Link href={`/proyectos/${project.slug}`} className={styles.folder} style={vars}>
+    <Link href={`/proyectos/${project.slug}`}
+      className={`${styles.folder} ${open ? styles.open : ""}`}
+      style={vars}>
       <span className={styles.tab} aria-hidden="true" />
       <span className={styles.body} aria-hidden="true" />
       <span className={styles.cover} aria-hidden="true">

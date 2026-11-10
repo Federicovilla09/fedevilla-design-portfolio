@@ -88,14 +88,16 @@
   color: var(--folder-meta);
 }
 
-/* Al pasar el mouse (o enfocar con teclado) la portada sube */
+/* Hover, foco con teclado o abierta por toque: la portada sube */
 .folder:hover .cover,
-.folder:focus-visible .cover {
+.folder:focus-visible .cover,
+.open .cover {
   transform: translateY(-16%) scale(1.04);
 }
 
 .folder:hover .front,
-.folder:focus-visible .front {
+.folder:focus-visible .front,
+.open .front {
   transform: translateY(2%);
 }
 
