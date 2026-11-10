@@ -41,7 +41,7 @@
   position: relative;
   list-style: none;
   /* Ancho según el alto disponible: el mazo mide ~1,5 veces su ancho */
-  width: min(300px, calc((100svh - 370px) / 1.52));
+  width: min(300px, calc((100svh - 330px) / 1.52));
   padding-top: var(--espacio-16);
 }
 
@@ -82,7 +82,7 @@
 @media (max-width: 767px) {
   /* "Portfolio" se achica en pantallas bajas: hasta 84 px como máximo */
   .titles h1 {
-    font-size: min(84px, 10.5svh);
+    font-size: min(84px, 9.5svh);
   }
 }
 
@@ -93,7 +93,7 @@
   }
 
   .deck {
-    width: min(300px, calc((100svh - 330px) / 1.52));
+    width: min(300px, calc((100svh - 295px) / 1.52));
   }
 }
 

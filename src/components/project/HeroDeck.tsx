@@ -64,7 +64,7 @@ export default function HeroDeck({ projects }: { projects: Project[] }) {
               }
             }}
           >
-            <Folder project={project} open={active === project.slug} />
+            <Folder project={project} open={active === project.slug} stacked={isMobile} />
           </motion.li>
         );
       })}

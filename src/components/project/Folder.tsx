@@ -14,9 +14,10 @@ type FolderProps = {
   project?: Project;
   variant?: "project" | "cta";
   open?: boolean;
+  stacked?: boolean;
 };
 
-export default function Folder({ project, variant = "project", open = false }: FolderProps) {
+export default function Folder({ project, variant = "project", open = false, stacked = false }: FolderProps) {
   // Carpeta punteada "Tu proyecto", que invita a escribir
   if (variant === "cta" || !project) {
     return (
@@ -42,7 +43,7 @@ export default function Folder({ project, variant = "project", open = false }: F
 
   return (
     <Link href={`/proyectos/${project.slug}`}
-      className={`${styles.folder} ${open ? styles.open : ""}`}
+      className={`${styles.folder} ${open ? styles.open : ""} ${stacked ? styles.stacked : ""}`}
       style={vars}>
       <span className={styles.tab} aria-hidden="true" />
       <span className={styles.body} aria-hidden="true" />

@@ -120,3 +120,17 @@
   border: 1.5px dashed color-mix(in srgb, var(--texto-secundario) 60%, transparent);
   backdrop-filter: none;
 }
+
+/* ---------- Modo apilado (mazo mobile) ---------- */
+/* El número baja a la derecha, a la altura del nombre, para que se vea aunque la carpeta esté atrás */
+.stacked .number {
+  position: absolute;
+  right: 6.5cqw;
+  bottom: 4.5cqw;
+  font-size: 11cqw;
+}
+
+.stacked .name,
+.stacked .meta {
+  padding-right: 18cqw; /* deja lugar para el número */
+}
