@@ -1,7 +1,8 @@
 import HeroDeck from "@/components/project/HeroDeck";
 import HeroTitles from "@/components/project/HeroTitles";
-import { projects } from "@/content/projects";
 import IndexBar from "@/components/layout/IndexBar";
+import Button from "@/components/ui/Button";
+import { projects } from "@/content/projects";
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -10,9 +11,14 @@ export default function Home() {
       <span className={styles.halo} aria-hidden="true" />
       <HeroTitles />
       <HeroDeck projects={projects} />
-      <p className={`t-small t-secundario ${styles.hint}`}>
-        Tocá una carpeta para abrirla · deslizá hacia arriba para ver la siguiente
-      </p>
+
+      <div className={styles.mobileFooter}>
+        <p className="t-small t-secundario">Tocá o deslizá las carpetas</p>
+        <Button href="/proyectos" fullWidth>
+          Ver todos los proyectos
+        </Button>
+      </div>
+
       <IndexBar />
     </main>
   );

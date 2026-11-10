@@ -5,7 +5,6 @@ import "@/styles/tokens.css";
 import "@/styles/typography.css";
 import "@/styles/globals.css";
 import Nav from "@/components/layout/Nav";
-import FloatingCta from "@/components/layout/FloatingCta";
 
 const satoshi = localFont({
   src: [
@@ -49,7 +48,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body>
         <Nav />
         {children}
-        <FloatingCta />
       </body>
     </html>
   );
