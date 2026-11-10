@@ -4,8 +4,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--espacio-20);
-  /* svh = alto real visible en el celular, descontando las barras del navegador */
+  gap: var(--espacio-16);
   height: calc(100svh - 76px);
   padding: var(--espacio-12) var(--margen-pagina) var(--espacio-20);
 }
@@ -37,12 +36,12 @@
   text-align: center;
 }
 
-/* ---------- Mobile: mazo compacto ---------- */
+/* ---------- Mobile: mazo compacto que se adapta al alto ---------- */
 .deck {
   position: relative;
   list-style: none;
-  width: 100%;
-  max-width: 300px;
+  /* Ancho según el alto disponible: el mazo mide ~1,5 veces su ancho */
+  width: min(300px, calc((100svh - 370px) / 1.52));
   padding-top: var(--espacio-16);
 }
 
@@ -50,7 +49,6 @@
   position: relative;
 }
 
-/* Cada carpeta asoma solo su parte de abajo (nombre y estado) */
 .item + .item {
   margin-top: -64%;
 }
@@ -63,7 +61,6 @@
   rotate: 1.5deg;
 }
 
-/* Solo la carpeta de arriba se arrastra; las demás no bloquean nada */
 .item:first-child {
   touch-action: none;
 }
@@ -80,6 +77,24 @@
   gap: var(--espacio-12);
   width: 100%;
   margin-top: auto;
+}
+
+@media (max-width: 767px) {
+  /* "Portfolio" se achica en pantallas bajas: hasta 84 px como máximo */
+  .titles h1 {
+    font-size: min(84px, 10.5svh);
+  }
+}
+
+/* Pantallas bajas: sin la línea de ayuda, más lugar para el mazo */
+@media (max-width: 767px) and (max-height: 720px) {
+  .mobileFooter p {
+    display: none;
+  }
+
+  .deck {
+    width: min(300px, calc((100svh - 330px) / 1.52));
+  }
 }
 
 /* ---------- Desde 768 px: carpetas en fila ---------- */
@@ -104,6 +119,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: var(--espacio-24);
+    width: 100%;
     max-width: var(--contenido-max);
   }
 
