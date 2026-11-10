@@ -1,0 +1,62 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espacio-8);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  line-height: 1.2;
+  border-radius: var(--radio-pill);
+  white-space: nowrap;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.button:hover .arrow {
+  transform: translateX(3px);
+}
+
+.button:active {
+  transform: scale(0.97);
+}
+
+.arrow {
+  transition: transform 0.2s ease;
+}
+
+/* Tamaños */
+.sizeL {
+  padding: var(--espacio-16) var(--espacio-24);
+  font-size: 15px;
+  min-height: 48px;
+}
+
+.sizeM {
+  padding: var(--espacio-12) var(--espacio-20);
+  font-size: 14px;
+  min-height: 44px;
+}
+
+/* Variantes */
+.primary {
+  background: var(--accion-primaria);
+  color: var(--accion-sobre-primaria);
+}
+
+.secondary {
+  background: transparent;
+  color: var(--texto-primario);
+  box-shadow: inset 0 0 0 1.5px var(--texto-primario);
+}
+
+.text {
+  padding-left: 0;
+  padding-right: 0;
+  min-height: auto;
+  color: var(--texto-primario);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.fullWidth {
+  width: 100%;
+}

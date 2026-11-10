@@ -4,6 +4,7 @@ import { IBM_Plex_Mono } from "next/font/google";
 import "@/styles/tokens.css";
 import "@/styles/typography.css";
 import "@/styles/globals.css";
+import Nav from "@/components/layout/Nav";
 
 const satoshi = localFont({
   src: [
@@ -33,7 +34,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="es" className={`${satoshi.variable} ${plexMono.variable}`}>
-      <body>{children}</body>
+      <body>
+        <Nav />
+        {children}
+      </body>
     </html>
   );
 }
