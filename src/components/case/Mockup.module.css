@@ -1,0 +1,71 @@
+/*
+  Unidades "cqw": 1cqw = 1% del ancho del CONTENEDOR (container query).
+  El contenedor es .wrapper, así todo lo de adentro (bordes, barra, sombras)
+  escala junto con el mockup, mida 300 o 1008 px, igual que en Figma.
+*/
+.wrapper {
+  container-type: inline-size;
+}
+
+.image {
+  object-fit: cover;
+  object-position: top;
+}
+
+/* ---------- Navegador (base Figma: 1008 px de ancho) ---------- */
+.browser {
+  overflow: hidden;
+  border: 1px solid var(--borde-default);
+  border-radius: 1.67cqw; /* 16.8 / 1008 */
+  background: var(--fondo-superficie);
+  box-shadow: 0 2.08cqw 5.56cqw rgb(23 23 23 / 0.15);
+}
+
+.bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3.33cqw; /* 33.6 / 1008 */
+  background: var(--fondo-pagina);
+}
+
+.dots {
+  position: absolute;
+  left: 1.67cqw;
+  display: flex;
+  gap: 0.56cqw;
+}
+
+.dots span {
+  width: 0.83cqw;
+  height: 0.83cqw;
+  border-radius: 50%;
+  background: var(--borde-default);
+}
+
+.url {
+  font-family: var(--font-mono);
+  font-size: 0.9cqw;
+  color: var(--texto-secundario);
+}
+
+.browserScreen {
+  position: relative;
+  aspect-ratio: 1440 / 900; /* la proporción de la captura */
+}
+
+/* ---------- Celular (base Figma: 288 px de ancho) ---------- */
+.phone {
+  padding: 2.88cqw; /* el borde negro */
+  border-radius: 15.35cqw;
+  background: var(--color-carbon);
+  filter: drop-shadow(0 7.2cqw 7.2cqw rgb(23 23 23 / 0.2));
+}
+
+.phoneScreen {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 393 / 852;
+  border-radius: 12.47cqw;
+}

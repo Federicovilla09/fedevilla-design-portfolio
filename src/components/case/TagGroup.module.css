@@ -1,0 +1,11 @@
+.group {
+  display: grid;
+  gap: var(--espacio-8);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap; /* si no entran, pasan a la línea de abajo */
+  gap: var(--espacio-8);
+  list-style: none; /* sin viñetas */
+}
