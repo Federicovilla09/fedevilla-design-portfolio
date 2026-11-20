@@ -39,10 +39,70 @@
   gap: var(--espacio-20) var(--espacio-48); /* vertical | horizontal */
 }
 
+/* ---------- Composición de mockups ---------- */
+.mockups {
+  display: grid;
+  width: 100%;
+  padding-bottom: var(--espacio-24);
+}
+
+/* Los tres en la misma celda: quedan encimados */
+.desktop,
+.mobile,
+.halo {
+  grid-area: 1 / 1;
+  align-self: start; /* sin esto, cada uno se estira al alto de la celda */
+}
+
+.desktop {
+  width: 86%;
+  margin-top: 2.9%;
+}
+
+.mobile {
+  justify-self: end; /* pegado a la derecha */
+  width: 34%;
+  margin-top: 8%;
+}
+
+.halo {
+  justify-self: center;
+  width: 86%;
+  aspect-ratio: 1; /* círculo: igual de alto que de ancho */
+  margin-top: 6%;
+  margin-bottom: -100%; /* decorativo: no suma alto a la composición */
+  border-radius: 50%;
+  background: var(--acento-decorativo);
+  opacity: 0.6;
+  filter: blur(60px);
+  pointer-events: none; /* no bloquea clics */
+}
+
 /* Escritorio (Figma: 1440 px) */
 @media (min-width: 1024px) {
+    .mockups {
+    padding-bottom: 0;
+  }
+
+  .desktop {
+    width: 84%;
+    margin-top: 1.7%;
+  }
+
+  .mobile {
+    width: 24%;
+    margin-top: 20.7%;
+  }
+
+  .halo {
+    width: 52%;
+    margin-top: 6.7%;
+    filter: blur(140px);
+  }
   .hero {
     padding-block: 112px;
+    padding: 56px var(--margen-pagina);
+    overflow: hidden;
   }
 
   .inner {

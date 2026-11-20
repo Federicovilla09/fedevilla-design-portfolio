@@ -55,18 +55,24 @@ export default function CaseHero({ project, caseStudy }: CaseHeroProps) {
           ))}
         </div>
 
-                {/* Provisorio: probamos los dos mockups solos (en el paso 6 armamos la composición) */}
-        <div style={{ width: "100%" }}>
+        {/* Composición: escritorio de fondo, celular adelante, círculo blur detrás */}
+        <div className={styles.mockups}>
+          <span className={styles.halo} aria-hidden="true" />
           <Mockup
             device="desktop"
             screen={hero.desktop}
             url={hero.url}
-            sizes="86vw"
+            sizes="(min-width: 1440px) 1008px, 86vw"
+            className={styles.desktop}
             priority
           />
-        </div>
-        <div style={{ width: 200 }}>
-          <Mockup device="mobile" screen={hero.mobile} sizes="200px" priority />
+          <Mockup
+            device="mobile"
+            screen={hero.mobile}
+            sizes="(min-width: 1440px) 288px, 34vw"
+            className={styles.mobile}
+            priority
+          />
         </div>
       </div>
     </section>
