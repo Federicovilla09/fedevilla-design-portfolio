@@ -1,0 +1,5 @@
+.header {
+  display: grid;
+  gap: var(--espacio-12);
+  max-width: 720px;
+}

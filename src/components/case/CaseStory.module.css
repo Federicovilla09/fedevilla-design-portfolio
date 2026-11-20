@@ -1,0 +1,34 @@
+/* Mobile: todo en una columna */
+.section {
+  padding: 56px var(--margen-pagina);
+  background: var(--fondo-superficie); /* blanco: separa la sección del hero */
+}
+
+.columns {
+  display: grid;
+  gap: var(--espacio-24);
+  max-width: var(--contenido-max);
+  margin-inline: auto;
+}
+
+.content {
+  display: grid;
+  gap: var(--espacio-16);
+}
+
+/* Escritorio: dos columnas iguales */
+@media (min-width: 1024px) {
+  .section {
+    padding-block: 112px;
+  }
+
+  .columns {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: var(--espacio-96);
+  }
+
+  .content {
+    gap: var(--espacio-24);
+  }
+}

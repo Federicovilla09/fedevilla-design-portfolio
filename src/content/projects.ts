@@ -23,6 +23,12 @@ export type CaseStudy = {
     desktop: Screen;
     mobile: Screen;
   };
+  story: {
+    label: string;
+    title: string;
+    paragraphs: string[];
+    quote: { text: string; caption: string };
+  };
 };
 
 export type Project = {
@@ -60,7 +66,7 @@ export const projects: Project[] = [
         { label: "Plataforma", items: ["Web app", "Mobile first"] },
         { label: "Stack", items: ["Figma", "React", "Supabase", "Vercel"] },
       ],
-            hero: {
+      hero: {
         url: "alquiler-de-libros.vercel.app/catalogo",
         desktop: {
           src: "/images/projects/letrita/catalogo-escritorio.webp",
@@ -69,6 +75,18 @@ export const projects: Project[] = [
         mobile: {
           src: "/images/projects/letrita/catalogo-mobile.webp",
           alt: "Catálogo en el celular: buscador, libro recomendado y recién llegados.",
+        },
+      }, // ← acá termina hero
+      story: {
+        label: "01 · La historia",
+        title: "Cada libro, una lectura compartida.",
+        paragraphs: [
+          "Ella no alquila un stock: alquila su biblioteca. Cada libro lo leyó, le puso su propio puntaje y anotó qué lo hace especial. Algunos todavía guardan subrayados y notas en los márgenes.",
+          "Empezó a prestarlos porque cree que los libros son para eso: para leerlos, compartirlos y contagiar las ganas de leer. Cuando una lectora le pregunta qué leer, no le manda una lista: le recomienda el que va con ella.",
+        ],
+        quote: {
+          text: "Hay que inyectarse cada día de fantasía para no morir de realidad.",
+          caption: "La frase que acompaña a la biblioteca",
         },
       },
     },

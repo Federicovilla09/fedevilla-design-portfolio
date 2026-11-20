@@ -1,0 +1,12 @@
+.quote {
+  display: grid;
+  gap: var(--espacio-8);
+  padding: var(--espacio-20);
+  border: 1px solid var(--borde-default);
+  border-radius: var(--radio-lg);
+  background: var(--fondo-superficie);
+}
+
+.mark {
+  color: var(--acento-decorativo);
+}
