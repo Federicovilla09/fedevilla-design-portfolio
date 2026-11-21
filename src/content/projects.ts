@@ -10,6 +10,18 @@ export type Screen = {
   alt: string;
 };
 
+/** Una cita con su fuente */
+export type QuoteData = {
+  text: string;
+  caption: string;
+};
+
+/** Un número grande con su explicación: "1 de 5", "100"… */
+export type StatData = {
+  value: string;
+  description: string;
+};
+
 /** Contenido del caso de estudio. Lo vamos completando sección por sección. */
 export type CaseStudy = {
   kind: string; // "Caso de estudio · producto end to end"
@@ -27,7 +39,17 @@ export type CaseStudy = {
     label: string;
     title: string;
     paragraphs: string[];
-    quote: { text: string; caption: string };
+    quote: QuoteData;
+  };
+  pain: {
+    label: string;
+    title: string;
+    intro: string;
+    flowLabel: string;
+    steps: string[];
+    file: string; // el chip con el nombre del PDF
+    stat: StatData;
+    quote: QuoteData;
   };
 };
 
@@ -88,7 +110,31 @@ export const projects: Project[] = [
           text: "Hay que inyectarse cada día de fantasía para no morir de realidad.",
           caption: "La frase que acompaña a la biblioteca",
         },
-      },
+      }, // ← acá termina story
+      pain: {
+        label: "02 · El dolor",
+        title: "Cada libro nuevo era rehacer el catálogo.",
+        intro:
+          "Lo que más pesaba no era alquilar: era mostrar lo que tenía. Y saber qué estaba prestado dependía de fichas de papel.",
+        flowLabel: "Lo que pasaba con cada libro nuevo",
+        steps: [
+          "Compra un libro nuevo.",
+          "Edita el PDF a mano.",
+          "Lo vuelve a mandar a cada clienta.",
+          "Muchas no lo descargan en el celular.",
+          "Le escriben igual para preguntar qué tiene.",
+        ],
+        file: "catalogo-libros.pdf · 17 páginas",
+        stat: {
+          value: "1 de 5",
+          description:
+            "Así calificó lo fácil que le resultaba actualizar su catálogo.",
+        },
+        quote: {
+          text: "Me hace tedioso editarlo cada vez que compro libros nuevos, y enviarlo nuevamente.",
+          caption: "La dueña de la biblioteca",
+        },
+      }, // ← acá termina pain
     },
   },
   {

@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import CaseHero from "@/components/case/CaseHero";
 import { getProject } from "@/content/projects";
 import CaseStory from "@/components/case/CaseStory";
+import CasePain from "@/components/case/CasePain";
 
 export default async function CasePage({ params }: PageProps<"/proyectos/[slug]">) {
   const { slug } = await params;
@@ -14,6 +15,7 @@ export default async function CasePage({ params }: PageProps<"/proyectos/[slug]"
     <main>
       <CaseHero project={project} caseStudy={project.caseStudy} />
       <CaseStory story={project.caseStudy.story} />
+      <CasePain pain={project.caseStudy.pain} />
     </main>
   );
 }

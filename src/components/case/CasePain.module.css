@@ -1,0 +1,59 @@
+/* Mobile */
+.section {
+  padding: 56px var(--margen-pagina);
+  /* sin background: usa el fondo de la página (cálido), como en Figma */
+}
+
+.inner {
+  display: grid;
+  gap: var(--espacio-24);
+  max-width: var(--contenido-max);
+  margin-inline: auto;
+}
+
+.intro {
+  max-width: 760px;
+}
+
+.columns {
+  display: grid;
+  gap: var(--espacio-24);
+}
+
+.flow {
+  display: grid;
+  gap: var(--espacio-16);
+}
+
+.steps {
+  display: grid;
+  gap: var(--espacio-12);
+  list-style: none;
+}
+
+.data {
+  display: grid;
+  gap: var(--espacio-20);
+}
+
+/* Escritorio */
+@media (min-width: 1024px) {
+  .section {
+    padding-block: 112px;
+  }
+
+  .inner {
+    gap: var(--espacio-56, 56px);
+  }
+
+  .columns {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: var(--espacio-64);
+  }
+
+  .flow,
+  .steps {
+    gap: 18px;
+  }
+}

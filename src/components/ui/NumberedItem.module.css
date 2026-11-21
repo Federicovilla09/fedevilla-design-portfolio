@@ -1,0 +1,16 @@
+.item {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-16);
+}
+
+.circle {
+  display: grid;
+  place-items: center; /* centra el número vertical y horizontalmente */
+  flex-shrink: 0; /* el círculo nunca se achica aunque el texto sea largo */
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--acento-decorativo);
+  color: var(--acento-texto);
+}

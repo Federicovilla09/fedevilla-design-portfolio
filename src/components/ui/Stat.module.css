@@ -1,0 +1,6 @@
+.stat {
+  display: grid;
+  gap: var(--espacio-8);
+  padding-block: var(--espacio-24); /* arriba y abajo */
+  border-top: 1px solid var(--borde-default);
+}
