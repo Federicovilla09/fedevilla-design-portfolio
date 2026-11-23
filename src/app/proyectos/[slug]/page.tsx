@@ -1,11 +1,18 @@
 import { notFound } from "next/navigation";
 import CaseHero from "@/components/case/CaseHero";
-import { getProject } from "@/content/projects";
 import CaseStory from "@/components/case/CaseStory";
 import CasePain from "@/components/case/CasePain";
 import CaseReaders from "@/components/case/CaseReaders";
 import CaseLearnings from "@/components/case/CaseLearnings";
 import CaseLibrary from "@/components/case/CaseLibrary";
+import { getProject, projects } from "@/content/projects";
+
+// Le dice a Next qué páginas generar en el build: una por cada proyecto con caso
+export function generateStaticParams() {
+  return projects
+    .filter((project) => project.caseStudy)
+    .map((project) => ({ slug: project.slug }));
+}
 
 export default async function CasePage({ params }: PageProps<"/proyectos/[slug]">) {
   const { slug } = await params;
