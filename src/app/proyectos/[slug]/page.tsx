@@ -3,6 +3,7 @@ import CaseHero from "@/components/case/CaseHero";
 import { getProject } from "@/content/projects";
 import CaseStory from "@/components/case/CaseStory";
 import CasePain from "@/components/case/CasePain";
+import CaseReaders from "@/components/case/CaseReaders";
 
 export default async function CasePage({ params }: PageProps<"/proyectos/[slug]">) {
   const { slug } = await params;
@@ -16,6 +17,7 @@ export default async function CasePage({ params }: PageProps<"/proyectos/[slug]"
       <CaseHero project={project} caseStudy={project.caseStudy} />
       <CaseStory story={project.caseStudy.story} />
       <CasePain pain={project.caseStudy.pain} />
+      <CaseReaders readers={project.caseStudy.readers} />
     </main>
   );
 }

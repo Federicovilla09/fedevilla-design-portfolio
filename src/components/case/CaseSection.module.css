@@ -1,0 +1,32 @@
+.section {
+  padding: 56px var(--margen-pagina);
+}
+
+.pagina {
+  background: var(--fondo-pagina);
+}
+
+.superficie {
+  background: var(--fondo-superficie);
+}
+
+.inner {
+  display: grid;
+  gap: 28px;
+  max-width: var(--contenido-max);
+  margin-inline: auto;
+}
+
+.intro {
+  max-width: 760px;
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding-block: 112px;
+  }
+
+  .inner {
+    gap: 56px;
+  }
+}

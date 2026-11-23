@@ -51,6 +51,13 @@ export type CaseStudy = {
     stat: StatData;
     quote: QuoteData;
   };
+  readers: {
+    label: string;
+    title: string;
+    intro: string;
+    quotes: QuoteData[]; // una lista de citas
+    highlight: string; // el bloque terracota
+  };
 };
 
 export type Project = {
@@ -135,6 +142,20 @@ export const projects: Project[] = [
           caption: "La dueña de la biblioteca",
         },
       }, // ← acá termina pain
+      readers: {
+        label: "03 · Del otro lado",
+        title: "Las lectoras querían elegir; el PDF les pedía paciencia.",
+        intro:
+          "Hablé con cinco clientas habituales: tenían ganas de leer, pero algunas abandonaban la búsqueda a mitad de camino porque recorrer el PDF se hacía pesado.",
+        quotes: [
+          { text: "Pensé en descargarlo después… y me olvidé.", caption: "Lectora de romance" },
+          { text: "Un PDF no tiene filtros y es complicado.", caption: "Lectora de fantasía y policiales" },
+          { text: "Me desmotivó la búsqueda.", caption: "Lectora de fantasía y policiales" },
+          { text: "Capaz descubro alguno que no imaginaba.", caption: "Sobre lo que querría poder hacer" },
+        ],
+        highlight:
+          "Lo que sí funcionaba: la recomendación personal, los recordatorios y coordinar todo por WhatsApp. Eso no había que tocarlo.",
+      }, // ← acá termina readers
     },
   },
   {
