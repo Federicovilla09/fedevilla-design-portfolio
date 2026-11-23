@@ -35,13 +35,6 @@ export type StepData = {
   description: string;
 };
 
-/** Una fila de la tabla antes / ahora */
-export type BeforeAfterData = {
-  task: string;
-  before: string;
-  after: string;
-};
-
 /** Contenido del caso de estudio. Lo vamos completando sección por sección. */
 export type CaseStudy = {
   kind: string; // "Caso de estudio · producto end to end"
@@ -51,6 +44,11 @@ export type CaseStudy = {
   summary: string;
   tags: TagGroupData[];
   hero: MockupSet;
+  process: {
+    label: string;
+    title: string;
+    intro: string;
+  };
   story: {
     label: string;
     title: string;
@@ -80,11 +78,11 @@ export type CaseStudy = {
     intro: string;
     principles: StepData[];
   };
-  library: {
+  forReaders: {
     label: string;
     title: string;
-    rows: BeforeAfterData[];
-    screens: MockupSet;
+    features: StepData[];
+    screens: Screen[];
   };
 };
 
@@ -134,6 +132,12 @@ export const projects: Project[] = [
           alt: "Catálogo en el celular: buscador, libro recomendado y recién llegados.",
         },
       }, // ← acá termina hero
+      process: {
+        label: "Para quienes quieren ver cómo trabajo",
+        title: "El proceso completo",
+        intro:
+          "De la investigación al producto en producción: decisiones, sistema de diseño y calidad.",
+      }, // ← acá termina process
       story: {
         label: "01 · La historia",
         title: "Cada libro, una lectura compartida.",
@@ -206,48 +210,39 @@ export const projects: Project[] = [
           },
         ],
       }, // ← acá termina learnings
-      library: {
-        label: "05 · Para la biblioteca",
-        title: "Menos tiempo administrando, más tiempo para recomendar.",
-        rows: [
+      forReaders: {
+        label: "06 · Para las lectoras",
+        title: "Elegir la próxima lectura, sin descargar nada.",
+        features: [
           {
-            task: "Sumar un libro nuevo",
-            before: "Rehacer el PDF y reenviarlo a todas.",
-            after: "Subir la portada y completar un formulario.",
+            title: "Explorar desde el link",
+            description: "El catálogo se abre en el celular al instante, sin archivos ni descargas.",
           },
           {
-            task: "Saber qué está libre",
-            before: "Revisar fichas de papel.",
-            after: "Lo ve en su biblioteca, ejemplar por ejemplar.",
+            title: "Encontrar por lo que importa",
+            description:
+              "Por género y por tropo, que es como ellas eligen. Y con la sinopsis que faltaba.",
           },
           {
-            task: "Acordarse de las devoluciones",
-            before: "Llevar la cuenta sola.",
-            after: "“Para hoy” muestra qué vence y qué se atrasó.",
+            title: "Saber antes de preguntar",
+            description: "Cada libro muestra si está disponible, y cada saga, qué tomos hay.",
           },
           {
-            task: "Mostrar su biblioteca",
-            before: "Un archivo que muchas no abrían.",
-            after: "Un link para compartir en WhatsApp o Instagram.",
-          },
-          {
-            task: "Libro prestado",
-            before: "Una lista de espera de memoria.",
-            after: "El pedido de aviso le llega por WhatsApp.",
+            title: "Escribir en un toque",
+            description: "Para pedirlo, pedir aviso cuando vuelva o pedir uno que no está.",
           },
         ],
-        screens: {
-          url: "alquiler-de-libros.vercel.app",
-          desktop: {
-            src: "/images/projects/letrita/gestion-escritorio.webp",
-            alt: "Biblioteca de la dueña: alertas de atrasos, vencimientos y reservas, buscador y libros con su estado.",
+        screens: [
+          {
+            src: "/images/projects/letrita/catalogo-filtrado-mobile.webp",
+            alt: "Catálogo filtrado por Romance y el tropo Slow Burn, con tres resultados.",
           },
-          mobile: {
-            src: "/images/projects/letrita/seguimiento-mobile.webp",
-            alt: "Seguimiento en el celular: préstamos atrasados, que vencen hoy, reservas y al día.",
+          {
+            src: "/images/projects/letrita/recien-llegados-mobile.webp",
+            alt: "Recién llegados: los cuatro últimos libros que sumó la biblioteca.",
           },
-        },
-      }, // ← acá termina library
+        ],
+      }, // ← acá termina forReaders
     },
   },
   {

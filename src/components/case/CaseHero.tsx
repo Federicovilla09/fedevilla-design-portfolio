@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Chip from "@/components/ui/Chip";
 import type { CaseStudy, Project } from "@/content/projects";
 import styles from "./CaseHero.module.css";
@@ -16,15 +15,6 @@ export default function CaseHero({ project, caseStudy }: CaseHeroProps) {
   return (
     <section className={styles.hero}>
       <div className={styles.inner}>
-        {/* Migas de pan: de dónde viene esta página */}
-        <nav
-          aria-label="Migas de pan"
-          className={`t-small t-secundario ${styles.breadcrumb}`}
-        >
-          <Link href="/proyectos">← Proyectos</Link>
-          <span aria-hidden="true">/</span>
-          <span>{project.number}</span>
-        </nav>
 
         {/* Número grande + estado + fecha */}
         <div className={styles.meta}>

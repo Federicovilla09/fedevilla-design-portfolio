@@ -21,6 +21,13 @@
   max-width: 760px;
 }
 
+/* Columna principal cuando hay aside (el gap es más chico que entre bloques) */
+.main {
+  display: grid;
+  align-content: start;
+  gap: var(--espacio-16);
+}
+
 @media (min-width: 1024px) {
   .section {
     padding-block: 112px;
@@ -28,5 +35,15 @@
 
   .inner {
     gap: 56px;
+  }
+
+    .columns {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: 80px;
+  }
+
+  .main {
+    gap: var(--espacio-24);
   }
 }

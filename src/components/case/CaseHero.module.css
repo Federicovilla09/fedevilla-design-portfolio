@@ -14,15 +14,6 @@
   margin-inline: auto;
 }
 
-.breadcrumb {
-  display: flex;
-  gap: var(--espacio-12);
-}
-
-.breadcrumb a:hover {
-  color: var(--texto-primario);
-}
-
 .meta {
   display: flex;
   flex-wrap: wrap;

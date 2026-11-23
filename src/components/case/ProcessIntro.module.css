@@ -1,0 +1,16 @@
+.intro {
+  padding: 56px var(--margen-pagina);
+}
+
+.inner {
+  display: grid;
+  gap: var(--espacio-16);
+  max-width: var(--contenido-max);
+  margin-inline: auto;
+}
+
+@media (min-width: 1024px) {
+  .intro {
+    padding-block: var(--espacio-96);
+  }
+}

@@ -1,0 +1,97 @@
+/* ---------- Mobile: pestañas a la izquierda, "Siguiente" a la derecha ---------- */
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacio-16);
+  padding: 10px var(--margen-pagina);
+  border-block: 1px solid var(--borde-default);
+  background: var(--fondo-pagina);
+}
+
+/* Las migas de pan solo entran en escritorio */
+.breadcrumb {
+  display: none;
+  gap: var(--espacio-12);
+}
+
+.breadcrumb a:hover {
+  color: var(--texto-primario);
+}
+
+.tabs {
+  display: flex;
+  gap: var(--espacio-20);
+}
+
+.tab {
+  display: grid;
+  gap: 6px;
+  padding-top: 6px; /* suma alto para llegar a 44 px de área táctil */
+  color: var(--texto-secundario);
+  transition: color 0.2s ease;
+}
+
+/* El indicador: una línea debajo del texto */
+.tab::after {
+  content: "";
+  height: 3px;
+  border-radius: 2px;
+  background: transparent;
+  transition: background 0.2s ease;
+}
+
+.tab:hover {
+  color: var(--texto-primario);
+}
+
+.active {
+  color: var(--texto-primario);
+}
+
+.active::after {
+  background: var(--acento-decorativo);
+}
+
+.next {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espacio-8);
+}
+
+.nextLong {
+  display: none;
+}
+
+/* ---------- Escritorio: migas | pestañas centradas | siguiente ---------- */
+@media (min-width: 1024px) {
+  .bar {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    padding-block: var(--espacio-12);
+  }
+
+  .breadcrumb {
+    display: flex;
+  }
+
+  .tabs {
+    gap: var(--espacio-32);
+  }
+
+  .tab {
+    gap: var(--espacio-8);
+  }
+
+  .next {
+    justify-self: end;
+  }
+
+  .nextLong {
+    display: inline;
+  }
+
+  .nextShort {
+    display: none;
+  }
+}

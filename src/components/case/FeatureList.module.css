@@ -1,0 +1,18 @@
+.list {
+  display: grid;
+  gap: var(--espacio-16);
+  list-style: none;
+}
+
+.item {
+  display: grid;
+  gap: 6px;
+  padding-top: var(--espacio-16);
+  border-top: 1px solid var(--borde-default);
+}
+
+@media (min-width: 1024px) {
+  .list {
+    gap: var(--espacio-24);
+  }
+}
