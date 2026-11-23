@@ -5,6 +5,7 @@ import CaseStory from "@/components/case/CaseStory";
 import CasePain from "@/components/case/CasePain";
 import CaseReaders from "@/components/case/CaseReaders";
 import CaseLearnings from "@/components/case/CaseLearnings";
+import CaseLibrary from "@/components/case/CaseLibrary";
 
 export default async function CasePage({ params }: PageProps<"/proyectos/[slug]">) {
   const { slug } = await params;
@@ -20,6 +21,7 @@ export default async function CasePage({ params }: PageProps<"/proyectos/[slug]"
       <CasePain pain={project.caseStudy.pain} />
       <CaseReaders readers={project.caseStudy.readers} />
       <CaseLearnings learnings={project.caseStudy.learnings} />
+      <CaseLibrary library={project.caseStudy.library} />
     </main>
   );
 }

@@ -1,0 +1,59 @@
+/* Los tres en la misma celda de la grilla: quedan encimados */
+.pair {
+  display: grid;
+  width: 100%;
+  padding-bottom: var(--espacio-24);
+}
+
+.desktop,
+.mobile,
+.halo {
+  grid-area: 1 / 1;
+  align-self: start;
+}
+
+.desktop {
+  width: 86%;
+  margin-top: 2.9%;
+}
+
+.mobile {
+  justify-self: end;
+  width: 34%;
+  margin-top: 8%;
+}
+
+.halo {
+  justify-self: center;
+  width: 86%;
+  aspect-ratio: 1;
+  margin-top: 6%;
+  margin-bottom: -100%;
+  border-radius: 50%;
+  background: var(--acento-decorativo);
+  opacity: 0.6;
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+@media (min-width: 1024px) {
+  .pair {
+    padding-bottom: 0;
+  }
+
+  .desktop {
+    width: 84%;
+    margin-top: 1.7%;
+  }
+
+  .mobile {
+    width: 24%;
+    margin-top: 20.7%;
+  }
+
+  .halo {
+    width: 52%;
+    margin-top: 6.7%;
+    filter: blur(140px);
+  }
+}

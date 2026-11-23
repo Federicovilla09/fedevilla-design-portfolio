@@ -3,7 +3,7 @@ import Chip from "@/components/ui/Chip";
 import type { CaseStudy, Project } from "@/content/projects";
 import styles from "./CaseHero.module.css";
 import TagGroup from "./TagGroup";
-import Mockup from "./Mockup";
+import MockupPair from "./MockupPair";
 
 type CaseHeroProps = {
   project: Project;
@@ -11,7 +11,7 @@ type CaseHeroProps = {
 };
 
 export default function CaseHero({ project, caseStudy }: CaseHeroProps) {
-  const { hero } = caseStudy;
+
 
   return (
     <section className={styles.hero}>
@@ -56,24 +56,7 @@ export default function CaseHero({ project, caseStudy }: CaseHeroProps) {
         </div>
 
         {/* Composición: escritorio de fondo, celular adelante, círculo blur detrás */}
-        <div className={styles.mockups}>
-          <span className={styles.halo} aria-hidden="true" />
-          <Mockup
-            device="desktop"
-            screen={hero.desktop}
-            url={hero.url}
-            sizes="(min-width: 1440px) 1008px, 86vw"
-            className={styles.desktop}
-            priority
-          />
-          <Mockup
-            device="mobile"
-            screen={hero.mobile}
-            sizes="(min-width: 1440px) 288px, 34vw"
-            className={styles.mobile}
-            priority
-          />
-        </div>
+        <MockupPair screens={caseStudy.hero} halo priority />
       </div>
     </section>
   );

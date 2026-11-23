@@ -10,6 +10,13 @@ export type Screen = {
   alt: string;
 };
 
+/** Un par de capturas (escritorio + celular) y la URL de la barra del navegador */
+export type MockupSet = {
+  url: string;
+  desktop: Screen;
+  mobile: Screen;
+};
+
 /** Una cita con su fuente */
 export type QuoteData = {
   text: string;
@@ -28,6 +35,13 @@ export type StepData = {
   description: string;
 };
 
+/** Una fila de la tabla antes / ahora */
+export type BeforeAfterData = {
+  task: string;
+  before: string;
+  after: string;
+};
+
 /** Contenido del caso de estudio. Lo vamos completando sección por sección. */
 export type CaseStudy = {
   kind: string; // "Caso de estudio · producto end to end"
@@ -36,11 +50,7 @@ export type CaseStudy = {
   tagline: string; // "De un PDF a una app propia."
   summary: string;
   tags: TagGroupData[];
-  hero: {
-    url: string; // el texto que aparece en la barra del navegador
-    desktop: Screen;
-    mobile: Screen;
-  };
+  hero: MockupSet;
   story: {
     label: string;
     title: string;
@@ -64,11 +74,17 @@ export type CaseStudy = {
     quotes: QuoteData[]; // una lista de citas
     highlight: string; // el bloque terracota
   };
-    learnings: {
+  learnings: {
     label: string;
     title: string;
     intro: string;
     principles: StepData[];
+  };
+  library: {
+    label: string;
+    title: string;
+    rows: BeforeAfterData[];
+    screens: MockupSet;
   };
 };
 
@@ -168,7 +184,7 @@ export const projects: Project[] = [
         highlight:
           "Lo que sí funcionaba: la recomendación personal, los recordatorios y coordinar todo por WhatsApp. Eso no había que tocarlo.",
       }, // ← acá termina readers
-            learnings: {
+      learnings: {
         label: "04 · Lo que aprendí",
         title: "Que la tecnología haga el trabajo pesado.",
         intro:
@@ -190,6 +206,48 @@ export const projects: Project[] = [
           },
         ],
       }, // ← acá termina learnings
+      library: {
+        label: "05 · Para la biblioteca",
+        title: "Menos tiempo administrando, más tiempo para recomendar.",
+        rows: [
+          {
+            task: "Sumar un libro nuevo",
+            before: "Rehacer el PDF y reenviarlo a todas.",
+            after: "Subir la portada y completar un formulario.",
+          },
+          {
+            task: "Saber qué está libre",
+            before: "Revisar fichas de papel.",
+            after: "Lo ve en su biblioteca, ejemplar por ejemplar.",
+          },
+          {
+            task: "Acordarse de las devoluciones",
+            before: "Llevar la cuenta sola.",
+            after: "“Para hoy” muestra qué vence y qué se atrasó.",
+          },
+          {
+            task: "Mostrar su biblioteca",
+            before: "Un archivo que muchas no abrían.",
+            after: "Un link para compartir en WhatsApp o Instagram.",
+          },
+          {
+            task: "Libro prestado",
+            before: "Una lista de espera de memoria.",
+            after: "El pedido de aviso le llega por WhatsApp.",
+          },
+        ],
+        screens: {
+          url: "alquiler-de-libros.vercel.app",
+          desktop: {
+            src: "/images/projects/letrita/gestion-escritorio.webp",
+            alt: "Biblioteca de la dueña: alertas de atrasos, vencimientos y reservas, buscador y libros con su estado.",
+          },
+          mobile: {
+            src: "/images/projects/letrita/seguimiento-mobile.webp",
+            alt: "Seguimiento en el celular: préstamos atrasados, que vencen hoy, reservas y al día.",
+          },
+        },
+      }, // ← acá termina library
     },
   },
   {
