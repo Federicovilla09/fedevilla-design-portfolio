@@ -22,6 +22,12 @@ export type StatData = {
   description: string;
 };
 
+/** Un paso o principio numerado: título + descripción */
+export type StepData = {
+  title: string;
+  description: string;
+};
+
 /** Contenido del caso de estudio. Lo vamos completando sección por sección. */
 export type CaseStudy = {
   kind: string; // "Caso de estudio · producto end to end"
@@ -57,6 +63,12 @@ export type CaseStudy = {
     intro: string;
     quotes: QuoteData[]; // una lista de citas
     highlight: string; // el bloque terracota
+  };
+    learnings: {
+    label: string;
+    title: string;
+    intro: string;
+    principles: StepData[];
   };
 };
 
@@ -156,6 +168,28 @@ export const projects: Project[] = [
         highlight:
           "Lo que sí funcionaba: la recomendación personal, los recordatorios y coordinar todo por WhatsApp. Eso no había que tocarlo.",
       }, // ← acá termina readers
+            learnings: {
+        label: "04 · Lo que aprendí",
+        title: "Que la tecnología haga el trabajo pesado.",
+        intro:
+          "Una encuesta, cinco entrevistas y el análisis del PDF dejaron tres principios para todo el producto.",
+        principles: [
+          {
+            title: "La app se encarga del catálogo",
+            description:
+              "Mostrar un libro no puede costar trabajo extra: se carga una vez y aparece para todas.",
+          },
+          {
+            title: "La conversación sigue siendo suya",
+            description: "Cada consulta termina en su WhatsApp, con el mensaje ya armado.",
+          },
+          {
+            title: "La confianza no se toca",
+            description:
+              "Entrega, pago y recomendaciones siguen siendo personales. Y nadie ve quién tiene cada libro.",
+          },
+        ],
+      }, // ← acá termina learnings
     },
   },
   {

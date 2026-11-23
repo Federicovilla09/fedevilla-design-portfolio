@@ -1,0 +1,13 @@
+/* Mobile: uno debajo del otro (la línea de arriba de cada paso los separa) */
+.principles {
+  display: grid;
+  list-style: none;
+}
+
+/* Escritorio: 3 columnas */
+@media (min-width: 1024px) {
+  .principles {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--espacio-24);
+  }
+}
