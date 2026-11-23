@@ -17,6 +17,12 @@ export type MockupSet = {
   mobile: Screen;
 };
 
+/** Una captura con su epígrafe (el texto chico de abajo) */
+export type CaptionedScreen = Screen & {
+  caption: string;
+  desktopOnly?: boolean; // true = en el celular no se muestra
+};
+
 /** Una cita con su fuente */
 export type QuoteData = {
   text: string;
@@ -77,6 +83,13 @@ export type CaseStudy = {
     title: string;
     intro: string;
     principles: StepData[];
+  };
+  gallery: {
+    label: string;
+    title: string;
+    phone: Screen; // el celular grande de la izquierda
+    panel: { url: string; screen: Screen; caption: string }; // el panel de escritorio
+    screens: CaptionedScreen[]; // los celulares chicos de abajo
   };
   forReaders: {
     label: string;
@@ -210,6 +223,40 @@ export const projects: Project[] = [
           },
         ],
       }, // ← acá termina learnings
+      gallery: {
+        label: "05 · La solución",
+        title: "Así se usa, día a día.",
+        phone: {
+          src: "/images/projects/letrita/catalogo-mobile.webp",
+          alt: "Catálogo en el celular: buscador, libro recomendado, filtros por género y recién llegados.",
+        },
+        panel: {
+          url: "alquiler-de-libros.vercel.app",
+          screen: {
+            src: "/images/projects/letrita/gestion-escritorio.webp",
+            alt: "Panel de la dueña: alertas de atrasos, vencimientos y reservas, buscador y libros con su estado.",
+          },
+          caption: "Panel de gestión · biblioteca, alquileres y vencimientos del día",
+        },
+        screens: [
+          {
+            src: "/images/projects/letrita/catalogo-filtrado-mobile.webp",
+            alt: "Catálogo filtrado por Romance y el tropo Slow Burn, con tres resultados.",
+            caption: "Filtros por género",
+          },
+          {
+            src: "/images/projects/letrita/recien-llegados-mobile.webp",
+            alt: "Recién llegados: los cuatro últimos libros que sumó la biblioteca.",
+            caption: "Recién llegados",
+            desktopOnly: true,
+          },
+          {
+            src: "/images/projects/letrita/seguimiento-mobile.webp",
+            alt: "Seguimiento: préstamos atrasados, que vencen hoy, reservas y al día.",
+            caption: "Seguimiento",
+          },
+        ],
+      }, // ← acá termina gallery
       forReaders: {
         label: "06 · Para las lectoras",
         title: "Elegir la próxima lectura, sin descargar nada.",

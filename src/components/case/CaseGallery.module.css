@@ -1,0 +1,69 @@
+/* ---------- Mobile ---------- */
+.layout {
+  display: grid;
+}
+
+/* El celular grande no entra en mobile: ya hay dos celulares abajo */
+.phone {
+  display: none;
+}
+
+.gallery {
+  display: grid;
+  gap: 28px;
+}
+
+/* Mockup + epígrafe */
+.panel {
+  display: grid;
+  gap: 28px;
+}
+
+.screen {
+  display: grid;
+  gap: var(--espacio-8);
+}
+
+.screens {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--espacio-20);
+  list-style: none;
+}
+
+/* "Recién llegados" se ve solo en escritorio */
+.desktopOnly {
+  display: none;
+}
+
+/* ---------- Escritorio: celular grande | panel + celulares ---------- */
+@media (min-width: 1024px) {
+  .layout {
+    grid-template-columns: 1fr 2fr;
+    align-items: start;
+    gap: var(--espacio-48);
+  }
+
+  .phone {
+    display: block;
+  }
+
+  .gallery,
+  .panel {
+    gap: var(--espacio-24);
+  }
+
+  .screen {
+    gap: 10px;
+  }
+
+  .screens {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--espacio-24);
+    max-width: 708px;
+  }
+
+  .desktopOnly {
+    display: block;
+  }
+}

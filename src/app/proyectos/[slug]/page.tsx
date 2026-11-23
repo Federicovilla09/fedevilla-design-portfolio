@@ -7,6 +7,7 @@ import CaseStory from "@/components/case/CaseStory";
 import CaseTabs from "@/components/case/CaseTabs";
 import ProcessIntro from "@/components/case/ProcessIntro";
 import { getProject, projects } from "@/content/projects";
+import CaseGallery from "@/components/case/CaseGallery";
 
 // Le dice a Next qué páginas generar en el build: una por cada proyecto con caso
 export function generateStaticParams() {
@@ -44,6 +45,7 @@ export default async function CasePage({ params }: PageProps<"/proyectos/[slug]"
             <CasePain pain={caseStudy.pain} />
             <CaseReaders readers={caseStudy.readers} />
             <CaseLearnings learnings={caseStudy.learnings} />
+            <CaseGallery gallery={caseStudy.gallery} />
           </>
         }
       />
