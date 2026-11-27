@@ -76,6 +76,13 @@ export type CaseStudy = {
       mobile: VideoSource;
     };
   };
+  compare: {
+    label: string;
+    title: string;
+    hint: string;
+    before: { label: string; file: string };
+    after: { label: string; screen: Screen };
+  };
   process: {
     label: string;
     title: string;
@@ -199,6 +206,19 @@ export const projects: Project[] = [
           mobile: { poster: "/images/projects/letrita/catalogo-mobile.webp" },
         },
       }, // ← acá termina result
+      compare: {
+        label: "Antes y después",
+        title: "Del PDF al link.",
+        hint: "Arrastrá el divisor para comparar.",
+        before: { label: "Antes", file: "catalogo-libros.pdf · 17 páginas" },
+        after: {
+          label: "Después",
+          screen: {
+            src: "/images/projects/letrita/catalogo-mobile.webp",
+            alt: "El catálogo en el celular, con buscador, recomendados y filtros.",
+          },
+        },
+      }, // ← acá termina compare
       process: {
         label: "Para quienes quieren ver cómo trabajo",
         title: "El proceso completo",

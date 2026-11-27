@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import CaseCompare from "@/components/case/CaseCompare";
 import CaseCraft from "@/components/case/CaseCraft";
 import CaseLearnings from "@/components/case/CaseLearnings";
 import CasePain from "@/components/case/CasePain";
@@ -39,7 +40,12 @@ export default async function CasePage({ params }: PageProps<"/proyectos/[slug]"
           number={project.number}
           name={project.name}
           next={next ? { slug: next.slug, name: next.name } : undefined}
-          resultado={<ResultHero name={project.name} result={caseStudy.result} />}
+          resultado={
+            <>
+              <ResultHero name={project.name} result={caseStudy.result} />
+              <CaseCompare compare={caseStudy.compare} />
+            </>
+          }
           proceso={
             <>
               <ProcessIntro process={caseStudy.process} />

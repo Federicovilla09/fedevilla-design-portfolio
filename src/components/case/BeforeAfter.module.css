@@ -1,0 +1,169 @@
+/* ---------- Mobile: antes arriba, después abajo ---------- */
+.compare {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 350 / 600;
+  border-radius: 28px;
+  user-select: none; /* que arrastrar no seleccione texto */
+}
+
+/* Las dos capas ocupan todo el comparador, una encima de la otra */
+.layer {
+  position: absolute;
+  inset: 0;
+}
+
+.before {
+  background: var(--color-gris);
+}
+
+.after {
+  background: var(--color-suave);
+}
+
+/* Cada capa muestra su contenido en "su" mitad */
+.half {
+  position: absolute;
+  inset: 0 0 50% 0; /* mitad de arriba */
+  display: grid;
+  place-items: center;
+}
+
+.afterHalf {
+  inset: 50% 0 0 0; /* mitad de abajo */
+  align-items: start;
+  overflow: hidden;
+}
+
+/* Las etiquetas "Antes" / "Después" */
+.tag {
+  position: absolute;
+  top: var(--espacio-16);
+  left: var(--espacio-16);
+  padding: var(--espacio-8) var(--espacio-16);
+  border: 1px solid var(--borde-default);
+  border-radius: var(--radio-pill);
+  background: var(--color-blanco);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.tagDark {
+  border-color: var(--color-carbon);
+  background: var(--color-carbon);
+  color: var(--color-calido);
+}
+
+.pdf {
+  display: grid;
+  justify-items: start;
+  gap: var(--espacio-12);
+  width: 50%;
+}
+
+.pdfDrawing {
+  width: 100%;
+  height: auto;
+}
+
+/* La etiqueta del archivo solo entra en escritorio (como en el Figma) */
+.file {
+  display: none;
+  margin-left: 6%;
+  padding: var(--espacio-8) var(--espacio-16);
+  border-radius: var(--radio-pill);
+  background: var(--color-carbon);
+  color: var(--color-calido);
+  white-space: nowrap;
+}
+
+/* El celular asoma desde arriba y se corta abajo */
+.phone {
+  width: 54%;
+  padding-top: var(--espacio-40);
+}
+
+/* La línea del divisor */
+.divider {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: var(--position);
+  height: 4px;
+  translate: 0 -50%;
+  background: var(--color-carbon);
+  pointer-events: none;
+}
+
+/* La manija: lo único que se arrastra (así el resto de la pantalla scrollea normal) */
+.handle {
+  position: absolute;
+  left: 50%;
+  top: var(--position);
+  translate: -50% -50%;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--color-carbon);
+  color: var(--color-calido);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 22px;
+  cursor: grab;
+  touch-action: none; /* el dedo mueve la manija, no la página */
+}
+
+.handle:active {
+  cursor: grabbing;
+}
+
+/* ---------- Escritorio: antes a la izquierda, después a la derecha ---------- */
+@media (min-width: 1024px) {
+  .compare {
+    aspect-ratio: 1200 / 560;
+  }
+
+  .half {
+    inset: 0 50% 0 0; /* mitad izquierda */
+  }
+
+  .afterHalf {
+    inset: 0 0 0 50%; /* mitad derecha */
+    justify-items: center;
+  }
+
+  .tag {
+    top: 28px;
+    left: var(--espacio-32);
+  }
+
+  .file {
+    display: block;
+  }
+
+  .phone {
+    width: 42%;
+    padding-top: 60px;
+  }
+
+  .divider {
+    top: 0;
+    bottom: 0;
+    left: var(--position);
+    right: auto;
+    width: 4px;
+    height: auto;
+    translate: -50% 0;
+  }
+
+  .handle {
+    top: 50%;
+    left: var(--position);
+    width: 72px;
+    height: 72px;
+  }
+}
