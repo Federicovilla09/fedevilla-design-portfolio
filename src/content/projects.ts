@@ -23,6 +23,14 @@ export type CaptionedScreen = Screen & {
   desktopOnly?: boolean; // true = en el celular no se muestra
 };
 
+/** Una tarjeta de servicio: qué hice, con una lista de entregables */
+export type ServiceData = {
+  title: string;
+  description: string;
+  items: string[];
+  illustration?: string; // ruta a un SVG decorativo
+};
+
 /** Una cita con su fuente */
 export type QuoteData = {
   text: string;
@@ -90,6 +98,12 @@ export type CaseStudy = {
     phone: Screen; // el celular grande de la izquierda
     panel: { url: string; screen: Screen; caption: string }; // el panel de escritorio
     screens: CaptionedScreen[]; // los celulares chicos de abajo
+  };
+  craft: {
+    label: string;
+    title: string;
+    intro: string;
+    services: ServiceData[];
   };
   forReaders: {
     label: string;
@@ -257,6 +271,35 @@ export const projects: Project[] = [
           },
         ],
       }, // ← acá termina gallery
+      craft: {
+        label: "06 · Cómo lo hice realidad",
+        title: "De la investigación a una app en producción.",
+        intro:
+          "Diseñé y construí el producto completo: las dos experiencias, un sistema de diseño propio y la app que hoy está en uso.",
+        services: [
+          {
+            title: "Diseño",
+            description:
+              "La gestión de la biblioteca y el catálogo de las clientas, de los flujos a cada pantalla.",
+            items: ["Investigación y journey", "Flujos y prototipos", "30+ pantallas"],
+            illustration: "/images/projects/letrita/ilustracion-diseno.svg",
+          },
+          {
+            title: "Sistema de diseño",
+            description:
+              "Una librería con los mismos nombres en Figma y en código, y reglas de accesibilidad.",
+            items: ["77 colores", "37 componentes", "28 íconos · handoff documentado"],
+            illustration: "/images/projects/letrita/ilustracion-sistema.svg",
+          },
+          {
+            title: "App en producción",
+            description:
+              "Login privado, datos en la nube, catálogo público y app instalable en el celular.",
+            items: ["React · Supabase", "Deploy en Vercel", "App instalable"],
+            illustration: "/images/projects/letrita/ilustracion-app.svg",
+          },
+        ],
+      }, // ← acá termina craft
       forReaders: {
         label: "06 · Para las lectoras",
         title: "Elegir la próxima lectura, sin descargar nada.",

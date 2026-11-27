@@ -1,0 +1,29 @@
+.card {
+  display: grid;
+  align-content: start;
+  gap: var(--espacio-16);
+  padding: var(--espacio-32);
+  border: 1px solid var(--borde-default);
+  border-radius: var(--radio-lg);
+  background: var(--fondo-superficie);
+}
+
+/* La ilustración ocupa todo el ancho de la tarjeta y mantiene su proporción */
+.illustration {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radio-md);
+}
+
+.items {
+  list-style: none;
+}
+
+.items li {
+  line-height: 1.9;
+}
+
+/* El guion largo va como decoración, no como texto */
+.items li::before {
+  content: "— ";
+}

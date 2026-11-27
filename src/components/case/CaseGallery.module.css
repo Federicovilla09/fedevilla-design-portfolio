@@ -46,6 +46,8 @@
 
   .phone {
     display: block;
+    position: sticky;
+    top: 120px;
   }
 
   .gallery,

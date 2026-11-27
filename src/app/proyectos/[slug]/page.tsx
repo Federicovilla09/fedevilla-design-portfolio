@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import CaseCraft from "@/components/case/CaseCraft";
 import CaseHero from "@/components/case/CaseHero";
 import CaseLearnings from "@/components/case/CaseLearnings";
 import CasePain from "@/components/case/CasePain";
@@ -46,6 +47,7 @@ export default async function CasePage({ params }: PageProps<"/proyectos/[slug]"
             <CaseReaders readers={caseStudy.readers} />
             <CaseLearnings learnings={caseStudy.learnings} />
             <CaseGallery gallery={caseStudy.gallery} />
+            <CaseCraft craft={caseStudy.craft} />
           </>
         }
       />
