@@ -7,6 +7,8 @@ import CaseQuality from "@/components/case/CaseQuality";
 import CaseReaders from "@/components/case/CaseReaders";
 import CaseStory from "@/components/case/CaseStory";
 import CaseTabs from "@/components/case/CaseTabs";
+import ContactCTA from "@/components/layout/ContactCTA";
+import Footer from "@/components/layout/Footer";
 import ProcessIntro from "@/components/case/ProcessIntro";
 import { getProject, projects } from "@/content/projects";
 import CaseGallery from "@/components/case/CaseGallery";
@@ -31,28 +33,32 @@ export default async function CasePage({ params }: PageProps<"/proyectos/[slug]"
   const next = projects.find((p) => p.caseStudy && p.slug !== project.slug);
 
   return (
-    <main>
-      <CaseTabs
-        number={project.number}
-        name={project.name}
-        next={next ? { slug: next.slug, name: next.name } : undefined}
-        resultado={
-          // Provisorio: el hero actual, hasta que armemos el Resultado nuevo
-          <CaseHero project={project} caseStudy={caseStudy} />
-        }
-        proceso={
-          <>
-            <ProcessIntro process={caseStudy.process} />
-            <CaseStory story={caseStudy.story} />
-            <CasePain pain={caseStudy.pain} />
-            <CaseReaders readers={caseStudy.readers} />
-            <CaseLearnings learnings={caseStudy.learnings} />
-            <CaseGallery gallery={caseStudy.gallery} />
-            <CaseCraft craft={caseStudy.craft} />
-            <CaseQuality quality={caseStudy.quality} />
-          </>
-        }
-      />
-    </main>
+    <>
+      <main>
+        <CaseTabs
+          number={project.number}
+          name={project.name}
+          next={next ? { slug: next.slug, name: next.name } : undefined}
+          resultado={
+            // Provisorio: el hero actual, hasta que armemos el Resultado nuevo
+            <CaseHero project={project} caseStudy={caseStudy} />
+          }
+          proceso={
+            <>
+              <ProcessIntro process={caseStudy.process} />
+              <CaseStory story={caseStudy.story} />
+              <CasePain pain={caseStudy.pain} />
+              <CaseReaders readers={caseStudy.readers} />
+              <CaseLearnings learnings={caseStudy.learnings} />
+              <CaseGallery gallery={caseStudy.gallery} />
+              <CaseCraft craft={caseStudy.craft} />
+              <CaseQuality quality={caseStudy.quality} />
+            </>
+          }
+        />
+        <ContactCTA />
+      </main>
+      <Footer />
+    </>
   );
 }

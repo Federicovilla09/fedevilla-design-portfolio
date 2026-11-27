@@ -1,0 +1,45 @@
+/* ---------- Mobile: alineado a la izquierda, botón a todo el ancho ---------- */
+.section {
+  padding: 56px var(--margen-pagina);
+}
+
+.inner {
+  display: grid;
+  gap: var(--espacio-20);
+  max-width: var(--contenido-max);
+  margin-inline: auto;
+}
+
+/* De 32 px (en 390) a 112 px (en 1440), escalando en el medio */
+.title {
+  font-size: clamp(32px, 2.29px + 7.62vw, 112px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+/* Lo que esté adentro (el botón) ocupa todo el ancho */
+.action > * {
+  width: 100%;
+}
+
+/* ---------- Escritorio: todo centrado ---------- */
+@media (min-width: 1024px) {
+  .section {
+    padding-block: var(--espacio-96);
+  }
+
+  .inner {
+    justify-items: center;
+    gap: var(--espacio-24);
+    text-align: center;
+  }
+
+  .title {
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+
+  .action > * {
+    width: auto;
+  }
+}

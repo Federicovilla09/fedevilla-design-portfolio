@@ -18,3 +18,12 @@
   border-color: var(--accion-primaria);
   color: var(--accion-sobre-primaria);
 }
+
+/* Chip que es un link */
+.link {
+  transition: border-color 0.2s ease;
+}
+
+.link:hover {
+  border-color: var(--texto-primario);
+}

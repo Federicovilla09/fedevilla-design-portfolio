@@ -1,0 +1,75 @@
+/* ---------- Mobile: todo apilado ---------- */
+.footer {
+  padding: var(--espacio-40) var(--margen-pagina);
+  border-top: 1px solid var(--borde-default);
+  background: var(--fondo-superficie);
+}
+
+.inner {
+  display: grid;
+  gap: var(--espacio-32);
+  max-width: var(--contenido-max);
+  margin-inline: auto;
+}
+
+.row {
+  display: grid;
+  gap: var(--espacio-32);
+}
+
+.brand,
+.column {
+  display: grid;
+  align-content: start;
+  gap: var(--espacio-12);
+}
+
+.links {
+  display: grid;
+  gap: var(--espacio-8);
+  list-style: none;
+}
+
+.links a:hover {
+  color: var(--acento-texto);
+}
+
+/* En mobile, las redes van en fila */
+.social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-8);
+  list-style: none;
+}
+
+.legal {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--espacio-16);
+}
+
+/* ---------- Escritorio: marca | navegación | redes ---------- */
+@media (min-width: 1024px) {
+  .footer {
+    padding-block: var(--espacio-64);
+  }
+
+  .inner {
+    gap: var(--espacio-40);
+  }
+
+  .row {
+    grid-template-columns: 1fr auto auto;
+    gap: var(--espacio-120);
+  }
+
+  .links {
+    gap: var(--espacio-12);
+  }
+
+  /* En escritorio, las redes van en columna */
+  .social {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
