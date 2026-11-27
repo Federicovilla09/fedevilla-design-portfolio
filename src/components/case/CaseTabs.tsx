@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import styles from "./CaseTabs.module.css";
 
@@ -29,7 +29,23 @@ export default function CaseTabs({ number, name, next, resultado, proceso }: Cas
   function select(tab: Tab) {
     setActive(tab);
     window.scrollTo({ top: 0 }); // cada pestaña se empieza a leer desde arriba
+    // La URL refleja la pestaña: /proyectos/…#proceso se puede compartir
+    history.replaceState(null, "", tab === "proceso" ? "#proceso" : window.location.pathname);
   }
+
+  // Si la URL trae #proceso (al entrar, o al tocar "Ver el proceso ↓"), abrimos esa pestaña
+  useEffect(() => {
+    function openFromHash() {
+      if (window.location.hash === "#proceso") {
+        setActive("proceso");
+        window.scrollTo({ top: 0 });
+      }
+    }
+
+    openFromHash(); // al cargar la página
+    window.addEventListener("hashchange", openFromHash); // cada vez que cambia el #
+    return () => window.removeEventListener("hashchange", openFromHash); // limpieza
+  }, []);
 
   // Con las flechas ← → se pasa de una pestaña a la otra (así funcionan las tabs accesibles)
   function handleKeyDown(event: React.KeyboardEvent, index: number) {

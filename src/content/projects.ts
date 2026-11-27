@@ -31,6 +31,12 @@ export type ServiceData = {
   illustration?: string; // ruta a un SVG decorativo
 };
 
+/** Un video de la app: la imagen de portada y (cuando esté) el archivo de video */
+export type VideoSource = {
+  poster: string; // imagen que se ve mientras carga, o mientras no hay video
+  src?: string; // el .mp4 (opcional: si no está, se muestra solo la portada)
+};
+
 /** Una cita con su fuente */
 export type QuoteData = {
   text: string;
@@ -58,6 +64,18 @@ export type CaseStudy = {
   summary: string;
   tags: TagGroupData[];
   hero: MockupSet;
+  result: {
+    status: string; // "En vivo"
+    summary: string;
+    liveUrl: string;
+    liveNote: string;
+    video: {
+      label: string;
+      alt: string;
+      desktop: VideoSource;
+      mobile: VideoSource;
+    };
+  };
   process: {
     label: string;
     title: string;
@@ -167,6 +185,20 @@ export const projects: Project[] = [
           alt: "Catálogo en el celular: buscador, libro recomendado y recién llegados.",
         },
       }, // ← acá termina hero
+      result: {
+        status: "En vivo",
+        summary:
+          "Una app para gestionar una biblioteca de alquiler y compartir su catálogo con un link.",
+        liveUrl: "https://alquiler-de-libros.vercel.app/catalogo",
+        liveNote:
+          "El catálogo es real: explorá todo lo que quieras, pero no envíes mensajes por WhatsApp.",
+        video: {
+          label: "Video próximamente · la app en uso",
+          alt: "La app de la biblioteca en uso: catálogo con recomendados, filtros y recién llegados.",
+          desktop: { poster: "/images/projects/letrita/catalogo-escritorio.webp" },
+          mobile: { poster: "/images/projects/letrita/catalogo-mobile.webp" },
+        },
+      }, // ← acá termina result
       process: {
         label: "Para quienes quieren ver cómo trabajo",
         title: "El proceso completo",

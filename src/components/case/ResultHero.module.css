@@ -1,0 +1,99 @@
+/* ---------- Mobile: todo alineado a la izquierda ---------- */
+.hero {
+  padding: 56px var(--margen-pagina);
+}
+
+.inner {
+  display: grid;
+  gap: var(--espacio-20);
+  max-width: var(--contenido-max);
+  margin-inline: auto;
+}
+
+.text {
+  display: grid;
+  justify-items: start;
+  gap: var(--espacio-20);
+}
+
+/* La pastilla "En vivo" */
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espacio-12);
+  padding: 10px 22px 10px 18px;
+  border: 1.5px solid var(--color-terracota);
+  border-radius: var(--radio-pill);
+  background: var(--color-carbon-2);
+}
+
+/* El punto que late: un círculo con un halo que se agranda y se desvanece */
+.dot {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  margin: 6px;
+  border-radius: 50%;
+  background: var(--color-terracota);
+}
+
+.dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--color-terracota);
+  animation: pulse 1.8s ease-out infinite;
+}
+
+@keyframes pulse {
+  from {
+    opacity: 0.6;
+    scale: 1;
+  }
+  to {
+    opacity: 0;
+    scale: 2.4;
+  }
+}
+
+/* De 44 px (en 390) a 128 px (en 1440) */
+.title {
+  font-size: clamp(44px, 12.8px + 8vw, 128px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.summary {
+  max-width: 720px;
+}
+
+/* Botones uno abajo del otro, a todo el ancho */
+.actions {
+  display: grid;
+  gap: 10px;
+  width: 100%;
+}
+
+/* ---------- Escritorio: texto centrado y botones en fila ---------- */
+@media (min-width: 1024px) {
+  .hero {
+    padding-block: var(--espacio-96);
+  }
+
+  .inner {
+    gap: var(--espacio-40);
+  }
+
+  .text {
+    justify-items: center;
+    gap: 18px;
+    text-align: center;
+  }
+
+  .actions {
+    display: flex;
+    justify-content: center;
+    gap: var(--espacio-12);
+  }
+}

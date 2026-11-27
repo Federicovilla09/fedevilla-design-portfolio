@@ -40,6 +40,22 @@ export default function Button({
     </>
   );
 
+  // Links externos (http…) o a una parte de la misma página (#…): <a> común
+  if (href && (href.startsWith("http") || href.startsWith("#"))) {
+    const external = href.startsWith("http");
+    return (
+      <a
+        href={href}
+        className={className}
+        target={external ? "_blank" : undefined}
+        rel={external ? "noopener noreferrer" : undefined}
+      >
+        {content}
+      </a>
+    );
+  }
+
+  // Links internos del sitio: <Link> de Next
   if (href) {
     return (
       <Link href={href} className={className}>

@@ -1,12 +1,12 @@
 import { notFound } from "next/navigation";
 import CaseCraft from "@/components/case/CaseCraft";
-import CaseHero from "@/components/case/CaseHero";
 import CaseLearnings from "@/components/case/CaseLearnings";
 import CasePain from "@/components/case/CasePain";
 import CaseQuality from "@/components/case/CaseQuality";
 import CaseReaders from "@/components/case/CaseReaders";
 import CaseStory from "@/components/case/CaseStory";
 import CaseTabs from "@/components/case/CaseTabs";
+import ResultHero from "@/components/case/ResultHero";
 import ContactCTA from "@/components/layout/ContactCTA";
 import Footer from "@/components/layout/Footer";
 import ProcessIntro from "@/components/case/ProcessIntro";
@@ -39,10 +39,7 @@ export default async function CasePage({ params }: PageProps<"/proyectos/[slug]"
           number={project.number}
           name={project.name}
           next={next ? { slug: next.slug, name: next.name } : undefined}
-          resultado={
-            // Provisorio: el hero actual, hasta que armemos el Resultado nuevo
-            <CaseHero project={project} caseStudy={caseStudy} />
-          }
+          resultado={<ResultHero name={project.name} result={caseStudy.result} />}
           proceso={
             <>
               <ProcessIntro process={caseStudy.process} />

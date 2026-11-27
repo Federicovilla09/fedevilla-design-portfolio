@@ -1,0 +1,53 @@
+/* ---------- Mobile: cuadro vertical (como un celular) ---------- */
+.frame {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 350 / 620;
+  border-radius: 28px;
+  background: var(--color-carbon-2);
+}
+
+/* La portada (y después el video) cubre todo el cuadro, alineada arriba */
+.poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgb(23 23 23 / 0) 0%,
+    rgb(23 23 23 / 0.15) 55%,
+    rgb(23 23 23 / 0.7) 100%
+  );
+}
+
+.label {
+  position: absolute;
+  left: var(--espacio-16);
+  bottom: var(--espacio-16);
+  padding: 8px 14px;
+  border-radius: var(--radio-pill);
+  background: var(--color-carbon);
+  color: var(--color-calido);
+}
+
+/* ---------- Escritorio: cuadro horizontal 16:9 ---------- */
+@media (min-width: 1024px) {
+  .frame {
+    aspect-ratio: 16 / 9;
+  }
+
+  .label {
+    left: var(--espacio-32);
+    bottom: var(--espacio-32);
+    padding: 10px 18px;
+  }
+}
