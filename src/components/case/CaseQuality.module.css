@@ -1,0 +1,30 @@
+/* ---------- Mobile ---------- */
+.scores {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--espacio-16);
+  list-style: none;
+}
+
+.adjustments {
+  display: grid;
+  gap: var(--espacio-12);
+  list-style: none;
+}
+
+.adjustment {
+  display: grid;
+  align-content: start;
+  gap: var(--espacio-8);
+  padding-top: var(--espacio-16);
+  border-top: 1px solid var(--borde-default);
+}
+
+/* ---------- Escritorio: 4 columnas ---------- */
+@media (min-width: 1024px) {
+  .scores,
+  .adjustments {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--espacio-24);
+  }
+}

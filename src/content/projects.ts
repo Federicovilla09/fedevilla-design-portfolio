@@ -105,6 +105,14 @@ export type CaseStudy = {
     intro: string;
     services: ServiceData[];
   };
+  quality: {
+    label: string;
+    title: string;
+    scoresLabel: string;
+    scores: StatData[];
+    adjustmentsLabel: string;
+    adjustments: StepData[];
+  };
   forReaders: {
     label: string;
     title: string;
@@ -300,6 +308,37 @@ export const projects: Project[] = [
           },
         ],
       }, // ← acá termina craft
+      quality: {
+        label: "07 · Calidad",
+        title: "Una auditoría para un buen producto.",
+        scoresLabel: "Auditoría Lighthouse del catálogo",
+        scores: [
+          { value: "100", description: "Accesibilidad" },
+          { value: "100", description: "Buenas prácticas" },
+          { value: "100", description: "SEO" },
+          { value: "80", description: "Rendimiento" },
+        ],
+        adjustmentsLabel: "Ajustes que surgieron en el camino",
+        adjustments: [
+          {
+            title: "Más simple",
+            description: "Las condiciones del ejemplar pasaron de cinco a tres.",
+          },
+          {
+            title: "Más claro",
+            description:
+              "Una sola lista de géneros; el catálogo muestra solo los que tienen libros.",
+          },
+          {
+            title: "Más legible",
+            description: "Los textos chicos ganaron contraste, hasta 100 en accesibilidad.",
+          },
+          {
+            title: "A su medida",
+            description: "Las pantallas se adaptan al ancho real de su celular.",
+          },
+        ],
+      }, // ← acá termina quality
       forReaders: {
         label: "06 · Para las lectoras",
         title: "Elegir la próxima lectura, sin descargar nada.",

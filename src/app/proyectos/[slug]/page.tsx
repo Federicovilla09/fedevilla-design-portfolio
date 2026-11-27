@@ -3,6 +3,7 @@ import CaseCraft from "@/components/case/CaseCraft";
 import CaseHero from "@/components/case/CaseHero";
 import CaseLearnings from "@/components/case/CaseLearnings";
 import CasePain from "@/components/case/CasePain";
+import CaseQuality from "@/components/case/CaseQuality";
 import CaseReaders from "@/components/case/CaseReaders";
 import CaseStory from "@/components/case/CaseStory";
 import CaseTabs from "@/components/case/CaseTabs";
@@ -48,6 +49,7 @@ export default async function CasePage({ params }: PageProps<"/proyectos/[slug]"
             <CaseLearnings learnings={caseStudy.learnings} />
             <CaseGallery gallery={caseStudy.gallery} />
             <CaseCraft craft={caseStudy.craft} />
+            <CaseQuality quality={caseStudy.quality} />
           </>
         }
       />
