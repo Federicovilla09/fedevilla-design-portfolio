@@ -1,0 +1,29 @@
+/* ---------- Mobile: tarjetas apiladas ---------- */
+.cards {
+  display: grid;
+  gap: 28px;
+  list-style: none;
+}
+
+.card {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  padding: var(--espacio-24);
+  border-radius: var(--radio-lg);
+  background: var(--fondo-superficie);
+}
+
+/* ---------- Escritorio: 3 columnas ---------- */
+@media (min-width: 1024px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--espacio-24);
+  }
+
+  .card {
+    gap: var(--espacio-12);
+    padding: 36px;
+    border-radius: var(--radio-xl);
+  }
+}

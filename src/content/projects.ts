@@ -1,20 +1,7 @@
-/** Un grupo de etiquetas del caso: "Rol", "Plataforma", "Stack"… */
-export type TagGroupData = {
-  label: string;
-  items: string[];
-};
-
 /** Captura de una pantalla real que se muestra dentro de un Mockup */
 export type Screen = {
   src: string;
   alt: string;
-};
-
-/** Un par de capturas (escritorio + celular) y la URL de la barra del navegador */
-export type MockupSet = {
-  url: string;
-  desktop: Screen;
-  mobile: Screen;
 };
 
 /** Una captura con su epígrafe (el texto chico de abajo) */
@@ -57,13 +44,6 @@ export type StepData = {
 
 /** Contenido del caso de estudio. Lo vamos completando sección por sección. */
 export type CaseStudy = {
-  kind: string; // "Caso de estudio · producto end to end"
-  version: string; // "v1.0"
-  date: string; // "Sept. 2026"
-  tagline: string; // "De un PDF a una app propia."
-  summary: string;
-  tags: TagGroupData[];
-  hero: MockupSet;
   result: {
     status: string; // "En vivo"
     summary: string;
@@ -82,6 +62,12 @@ export type CaseStudy = {
     hint: string;
     before: { label: string; file: string };
     after: { label: string; screen: Screen };
+  };
+  changes: {
+    label: string;
+    title: string;
+    items: StepData[];
+    quote: QuoteData;
   };
   process: {
     label: string;
@@ -167,31 +153,6 @@ export const projects: Project[] = [
     color: "suave",
     cover: "/images/projects/letrita/cover.png",
     caseStudy: {
-      kind: "Caso de estudio · producto end to end",
-      version: "v1.0",
-      date: "Sept. 2026",
-      tagline: "De un PDF a una app propia.",
-      summary:
-        "La historia de una biblioteca personal que se alquila por WhatsApp, y de cómo dejó de depender de un PDF.",
-      tags: [
-        {
-          label: "Rol",
-          items: ["Investigación", "Diseño UX/UI", "Desarrollo"],
-        },
-        { label: "Plataforma", items: ["Web app", "Mobile first"] },
-        { label: "Stack", items: ["Figma", "React", "Supabase", "Vercel"] },
-      ],
-      hero: {
-        url: "alquiler-de-libros.vercel.app/catalogo",
-        desktop: {
-          src: "/images/projects/letrita/catalogo-escritorio.webp",
-          alt: "Catálogo en escritorio: recomendados, filtros por género y recién llegados.",
-        },
-        mobile: {
-          src: "/images/projects/letrita/catalogo-mobile.webp",
-          alt: "Catálogo en el celular: buscador, libro recomendado y recién llegados.",
-        },
-      }, // ← acá termina hero
       result: {
         status: "En vivo",
         summary:
@@ -219,6 +180,29 @@ export const projects: Project[] = [
           },
         },
       }, // ← acá termina compare
+      changes: {
+        label: "Qué cambió",
+        title: "Lo que cambió en su día a día.",
+        items: [
+          {
+            title: "Un link en lugar de un PDF",
+            description: "El catálogo se comparte por WhatsApp o Instagram y siempre está al día.",
+          },
+          {
+            title: "Saber qué está disponible",
+            description: "Cada libro muestra su estado, y las lectoras ya no tienen que preguntar.",
+          },
+          {
+            title: "Devoluciones que no se olvidan",
+            description: "La app avisa qué vence hoy y qué se atrasó.",
+          },
+        ],
+        // Provisorio: reemplazar por la frase real de la clienta
+        quote: {
+          text: "[Testimonio de la clienta: una o dos frases sobre cómo le cambió el día a día]",
+          caption: "Dueña de la biblioteca",
+        },
+      }, // ← acá termina changes
       process: {
         label: "Para quienes quieren ver cómo trabajo",
         title: "El proceso completo",
